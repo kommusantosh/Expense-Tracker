@@ -1,0 +1,1054 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Expense Tracker</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         THEME BUTTON
+         ========================================== -->
+
+    <button
+        id="themeToggle"
+        class="theme-toggle"
+        type="button"
+    >
+        ☀️ Light
+    </button>
+
+
+
+    <!-- ==========================================
+         WELCOME SCREEN
+         ========================================== -->
+
+    <section
+        id="welcomeScreen"
+        class="welcome-screen"
+    >
+
+        <div class="welcome-card">
+
+            <div class="logo">
+                💰
+            </div>
+
+            <h1>
+                Expense Tracker
+            </h1>
+
+            <p>
+                Track your expenses, understand your
+                spending and manage your money better.
+            </p>
+
+
+            <input
+                type="text"
+                id="userName"
+                placeholder="Enter your name"
+                autocomplete="name"
+            >
+
+
+            <button
+                type="button"
+                id="startButton"
+            >
+                Get Started →
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         MAIN APPLICATION
+         ========================================== -->
+
+    <main
+        id="app"
+        class="app"
+        style="display: none;"
+    >
+
+
+        <!-- ======================================
+             HEADER
+             ====================================== -->
+
+        <header class="app-header">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <h1>
+                        Expense Tracker
+                    </h1>
+
+                    <span>
+                        Smart personal expense management
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ======================================
+             GREETING
+             ====================================== -->
+
+        <section class="greeting-section">
+
+            <h2 id="welcomeMessage">
+                Good Morning! 👋
+            </h2>
+
+            <p>
+                Keep track of your spending and stay
+                in control of your finances.
+            </p>
+
+        </section>
+
+
+
+        <!-- ======================================
+             SUMMARY
+             ====================================== -->
+
+        <section class="summary-grid">
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Spending
+                    </span>
+
+                    <h3>
+                        ₹<span id="totalAmount">0</span>
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    🧾
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Expenses
+                    </span>
+
+                    <h3 id="expenseCount">
+                        0
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    📊
+                </div>
+
+                <div>
+
+                    <span>
+                        Average Expense
+                    </span>
+
+                    <h3>
+                        ₹<span id="averageAmount">0</span>
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ======================================
+             ADD / UPDATE EXPENSE
+             ====================================== -->
+
+        <section class="form-section">
+
+
+            <div class="section-heading">
+
+                <h2>
+                    ➕ Add Expense
+                </h2>
+
+                <p>
+                    Record your daily spending.
+                </p>
+
+            </div>
+
+
+
+            <div class="expense-form">
+
+
+                <!-- Amount -->
+
+                <div class="input-group">
+
+                    <label for="amount">
+                        Amount
+                    </label>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="Enter amount"
+                        min="0"
+                        step="0.01"
+                    >
+
+                </div>
+
+
+
+                <!-- Category -->
+
+                <div class="input-group">
+
+                    <label for="category">
+                        Category
+                    </label>
+
+                    <select id="category">
+
+                        <option value="">
+                            Select category
+                        </option>
+
+                        <option value="Food">
+                            Food
+                        </option>
+
+                        <option value="Travel">
+                            Travel
+                        </option>
+
+                        <option value="Shopping">
+                            Shopping
+                        </option>
+
+                        <option value="Education">
+                            Education
+                        </option>
+
+                        <option value="Bills">
+                            Bills
+                        </option>
+
+                        <option value="Entertainment">
+                            Entertainment
+                        </option>
+
+                        <option value="Health">
+                            Health
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Description -->
+
+                <div class="input-group">
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <input
+                        type="text"
+                        id="description"
+                        placeholder="What did you spend on?"
+                    >
+
+                </div>
+
+
+
+                <!-- Date -->
+
+                <div class="input-group">
+
+                    <label for="date">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                    >
+
+                </div>
+
+
+
+                <!-- Add Button -->
+
+                <button
+                    type="button"
+                    id="addExpense"
+                >
+                    + Add Expense
+                </button>
+
+
+
+                <!-- Update Button -->
+
+                <button
+                    type="button"
+                    id="updateExpense"
+                    style="display: none;"
+                >
+                    ✓ Update Expense
+                </button>
+
+
+            </div>
+
+        </section>
+        
+<!-- ======================================
+     MONTHLY BUDGET
+     ====================================== -->
+
+<section class="budget-section">
+
+    <div class="section-heading">
+
+        <h2>
+            🎯 Monthly Budget
+        </h2>
+
+        <p>
+            Set a spending limit for this month.
+        </p>
+
+    </div>
+
+
+    <div class="budget-card">
+
+
+        <!-- Budget Input -->
+
+        <div class="budget-input-area">
+
+            <label for="monthlyBudget">
+                Your Monthly Budget
+            </label>
+
+            <div class="budget-input-wrapper">
+
+                <span>₹</span>
+
+                <input
+                    type="number"
+                    id="monthlyBudget"
+                    placeholder="Enter your budget"
+                    min="0"
+                    step="100"
+                >
+
+            </div>
+
+
+            <button
+                type="button"
+                id="saveBudget"
+            >
+                Save Budget
+            </button>
+
+        </div>
+
+
+
+        <!-- Budget Information -->
+
+        <div class="budget-info">
+
+
+            <div class="budget-stat">
+
+                <span>
+                    Budget
+                </span>
+
+                <strong>
+                    ₹<span id="budgetAmount">0</span>
+                </strong>
+
+            </div>
+
+
+            <div class="budget-stat">
+
+                <span>
+                    Spent
+                </span>
+
+                <strong>
+                    ₹<span id="budgetSpent">0</span>
+                </strong>
+
+            </div>
+
+
+            <div class="budget-stat">
+
+                <span>
+                    Remaining
+                </span>
+
+                <strong>
+                    ₹<span id="budgetRemaining">0</span>
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- Progress -->
+
+        <div class="budget-progress-area">
+
+            <div class="budget-progress-header">
+
+                <span>
+                    Budget Usage
+                </span>
+
+                <strong id="budgetPercentage">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="budget-progress">
+
+                <div
+                    id="budgetProgressBar"
+                    class="budget-progress-bar"
+                ></div>
+
+            </div>
+
+
+            <p
+                id="budgetMessage"
+                class="budget-message"
+            >
+                Set your monthly budget to start tracking.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     MONTHLY REPORT
+     ====================================== -->
+
+<section class="report-section">
+
+    <div class="section-heading">
+
+        <h2>
+            📅 Monthly Report
+        </h2>
+
+        <p>
+            See a summary of your spending for a selected month.
+        </p>
+
+    </div>
+
+
+    <div class="report-card">
+
+        <!-- Month Selector -->
+
+        <div class="report-selector">
+
+            <label for="reportMonth">
+                Select Month
+            </label>
+
+            <input
+                type="month"
+                id="reportMonth"
+            >
+
+        </div>
+
+
+        <!-- Report Statistics -->
+
+        <div class="report-stats">
+
+            <div class="report-stat">
+
+                <span>
+                    💰 Total Spent
+                </span>
+
+                <strong>
+                    ₹<span id="reportTotal">0</span>
+                </strong>
+
+            </div>
+
+
+            <div class="report-stat">
+
+                <span>
+                    🧾 Total Expenses
+                </span>
+
+                <strong id="reportCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="report-stat">
+
+                <span>
+                    📊 Average Expense
+                </span>
+
+                <strong>
+                    ₹<span id="reportAverage">0</span>
+                </strong>
+
+            </div>
+
+
+            <div class="report-stat">
+
+                <span>
+                    🏆 Highest Category
+                </span>
+
+                <strong id="reportCategory">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- Report Message -->
+
+        <p
+            id="reportMessage"
+            class="report-message"
+        >
+            Select a month to view your report.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     BACKUP & RESTORE
+     ====================================== -->
+
+<section class="backup-section">
+
+    <div class="section-heading">
+
+        <h2>
+            💾 Backup & Restore
+        </h2>
+
+        <p>
+            Save your expense data and restore it whenever you need.
+        </p>
+
+    </div>
+
+
+    <div class="backup-card">
+
+
+        <div class="backup-option">
+
+            <div class="backup-icon">
+                📥
+            </div>
+
+            <div class="backup-content">
+
+                <h3>
+                    Backup Your Data
+                </h3>
+
+                <p>
+                    Download your expenses and budget as a backup file.
+                </p>
+
+                <button
+                    type="button"
+                    id="backupData"
+                    class="backup-button"
+                >
+                    📥 Backup Data
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="backup-divider"></div>
+
+
+        <div class="backup-option">
+
+            <div class="backup-icon">
+                📤
+            </div>
+
+            <div class="backup-content">
+
+                <h3>
+                    Restore Your Data
+                </h3>
+
+                <p>
+                    Restore your expenses and budget from a backup file.
+                </p>
+
+                <input
+                    type="file"
+                    id="restoreFile"
+                    accept=".json"
+                    hidden
+                >
+
+                <button
+                    type="button"
+                    id="restoreData"
+                    class="backup-button restore-button"
+                >
+                    📤 Restore Data
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+        <!-- ======================================
+             ANALYTICS
+             ====================================== -->
+
+        <section class="analytics-section">
+
+
+            <div class="section-heading">
+
+                <h2>
+                    📊 Spending Analytics
+                </h2>
+
+                <p>
+                    See where your money is going.
+                </p>
+
+            </div>
+
+
+
+            <div class="analytics-card">
+
+
+                <!-- Chart -->
+
+                <div class="chart-container">
+
+                    <canvas
+                        id="expenseChart"
+                    ></canvas>
+
+                </div>
+
+
+
+                <!-- Category Breakdown -->
+
+                <div
+                    id="categoryBreakdown"
+                    class="category-breakdown"
+                >
+
+                    <div class="category-item">
+
+                        <span class="category-name">
+                            📊 No data yet
+                        </span>
+
+                        <span class="category-amount">
+                            ₹0
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+             EXPENSE HISTORY
+             ====================================== -->
+
+        <section class="expenses-section">
+            
+            <button
+                type="button"
+                id="exportCSV"
+                class="export-button"
+            >
+                📥 Export CSV
+            </button>
+
+
+
+
+            <div class="expenses-header">
+
+
+                <div class="section-heading">
+
+                    <h2>
+                        🧾 Expense History
+                    </h2>
+
+                    <p>
+                        View and manage your expenses.
+                    </p>
+
+                </div>
+
+
+
+                <!-- Search + Filter -->
+
+                <div class="expense-filters">
+
+
+                    <div class="search-box">
+
+                        <span>
+                            🔍
+                        </span>
+
+                        <input
+                            type="text"
+                            id="searchExpense"
+                            placeholder="Search expenses..."
+                        >
+
+                    </div>
+
+
+
+                    <select id="filterCategory">
+
+                        <option value="All">
+                            All Categories
+                        </option>
+
+                        <option value="Food">
+                            Food
+                        </option>
+
+                        <option value="Travel">
+                            Travel
+                        </option>
+
+                        <option value="Shopping">
+                            Shopping
+                        </option>
+
+                        <option value="Education">
+                            Education
+                        </option>
+
+                        <option value="Bills">
+                            Bills
+                        </option>
+
+                        <option value="Entertainment">
+                            Entertainment
+                        </option>
+
+                        <option value="Health">
+                            Health
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- Expense List -->
+
+            <div id="expenseList">
+            </div>
+
+
+
+            <!-- Empty State -->
+
+            <div
+                id="emptyState"
+                class="empty-state"
+            >
+
+                <div class="empty-icon">
+                    🧾
+                </div>
+
+                <h3>
+                    No expenses yet
+                </h3>
+
+                <p>
+                    Add your first expense to start
+                    tracking your spending.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         DELETE CONFIRMATION MODAL
+         ========================================== -->
+
+    <div
+        id="confirmModal"
+        class="modal"
+    >
+
+
+        <div class="modal-content">
+
+
+            <div class="modal-warning">
+                ⚠️
+            </div>
+
+
+            <h3>
+                Delete Expense?
+            </h3>
+
+
+            <p>
+                Are you sure you want to delete
+                this expense?
+            </p>
+
+
+            <p>
+                This action cannot be reversed.
+            </p>
+
+
+
+            <div class="modal-buttons">
+
+
+                <button
+                    type="button"
+                    id="cancelDelete"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="button"
+                    id="confirmDelete"
+                >
+                    Delete
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ==========================================
+         CHART.JS
+         ========================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+
+    <!-- ==========================================
+         APPLICATION JAVASCRIPT
+         ========================================== -->
+
+    <script
+        src="script.js"
+    ></script>
+
+<!-- ======================================
+     CUSTOM NOTIFICATION
+     ====================================== -->
+
+<div
+    id="customNotification"
+    class="custom-notification"
+>
+
+    <div class="notification-icon">
+        ✅
+    </div>
+
+    <div class="notification-content">
+
+        <h3 id="notificationTitle">
+            Success
+        </h3>
+
+        <p id="notificationMessage">
+            Action completed successfully.
+        </p>
+
+    </div>
+
+    <button
+        type="button"
+        id="notificationClose"
+        class="notification-close"
+    >
+        ×
+    </button>
+
+</div>
+
+</body>
+
+</html>
+
